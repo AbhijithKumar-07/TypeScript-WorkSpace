@@ -57,3 +57,105 @@ const Subtract: MathOperation = (a, b) => {
 }
 
 console.log(Subtract(30, 5));
+
+
+// IMPORTANT -->> NOTE -->> We Can Also Provide 'Methods' In an 'Interface'
+
+// An Object Can Contain Properties & Methods
+// Methods -->> Methods are nothing but functions
+// But we do not use 'function' Keyword to create a method in an object
+
+//   interface interfaceName {
+//       propName: dataTypeOf_Value,
+//       methodName() : dataTypeOf_ReturnValue
+//   }
+
+//   let objName: interfaceName = {
+//       propName: value,
+//       methodName() {
+
+//       },
+//   }
+
+// Example - 1
+interface Person {
+    firstName: string;
+    lastName: string;
+    age: number;
+    sayHello() : void;
+}
+
+
+const john: Person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 30,
+    sayHello() {
+        console.log("Hi There");
+    },
+}
+
+console.log(`WhatsUp ${john.firstName} ${john.lastName}`);
+john.sayHello();
+
+
+// Example - 2
+interface Students {
+    name: string;
+    regNo: number;
+    cgpa: number;
+    gradeCard(): void;
+}
+
+let student1: Students = {
+    name: "Abhijith Kumar",
+    regNo: 1073,
+    cgpa: 8.32,
+    gradeCard() {
+        console.log(`${student1.name}'s Cgpa is ${student1.cgpa}`);
+    },
+}
+
+function studentResults(student: Students): void {
+    student.gradeCard()
+}
+
+studentResults(student1);
+
+
+// Example-3
+interface Song {
+    songName: string;
+    singerName: string;
+    printSongInfo(songName: string, singerName: string): string;
+}
+
+let song1: Song = {
+    songName: "Natural",
+    singerName: "Drigon",
+    printSongInfo(songName, singerName) {
+        return `Song: ${songName}, Singer: ${singerName}`
+    },
+}
+
+console.log( song1.printSongInfo(song1.songName, song1.singerName) );
+
+
+// Example-4
+interface Game {
+    gameName: string;
+    mobileGame: boolean;
+    letsPlay() : void;
+}
+
+const FF: Game = {
+    gameName: "Free Fire",
+    mobileGame: true,
+    letsPlay: () => {
+        console.log(`Lets Play ${FF.gameName}`);
+    }
+}
+
+FF.letsPlay();
+
+
