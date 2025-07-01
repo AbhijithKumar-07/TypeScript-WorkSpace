@@ -14,7 +14,7 @@
 
 // Conclusion
 // While creating an enum -->> 
-// Do not use 'Annotations' 
+// Do not Use 'Annotations' 
 // & Do not Use Equals To '='
 
 
