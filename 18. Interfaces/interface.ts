@@ -40,24 +40,22 @@ interface MathOperation {
 }
 
 const add: MathOperation = (a, b) => {
-    return a + b;
-}
+  return a + b;
+};
 
 console.log(add(2, 3));
 
 // Creating subtract function without using Interface
 function subtract(a: number, b: number): number {
-    return a - b;
+  return a - b;
 }
-
 
 // subtract function using Interface
 const Subtract: MathOperation = (a, b) => {
-    return a - b;
-}
+  return a - b;
+};
 
 console.log(Subtract(30, 5));
-
 
 // IMPORTANT -->> NOTE -->> We Can Also Provide 'Methods' In an 'Interface'
 
@@ -79,83 +77,135 @@ console.log(Subtract(30, 5));
 
 // Example - 1
 interface Person {
-    firstName: string;
-    lastName: string;
-    age: number;
-    sayHello() : void;
+  firstName: string;
+  lastName: string;
+  age: number;
+  sayHello(): void;
 }
-
 
 const john: Person = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 30,
-    sayHello() {
-        console.log("Hi There");
-    },
-}
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  sayHello() {
+    console.log("Hi There");
+  },
+};
 
 console.log(`WhatsUp ${john.firstName} ${john.lastName}`);
 john.sayHello();
 
-
 // Example - 2
 interface Students {
-    name: string;
-    regNo: number;
-    cgpa: number;
-    gradeCard(): void;
+  name: string;
+  regNo: number;
+  cgpa: number;
+  gradeCard(): void;
 }
 
 let student1: Students = {
-    name: "Abhijith Kumar",
-    regNo: 1073,
-    cgpa: 8.32,
-    gradeCard() {
-        console.log(`${student1.name}'s Cgpa is ${student1.cgpa}`);
-    },
-}
+  name: "Abhijith Kumar",
+  regNo: 1073,
+  cgpa: 8.32,
+  gradeCard() {
+    console.log(`${student1.name}'s Cgpa is ${student1.cgpa}`);
+  },
+};
 
 function studentResults(student: Students): void {
-    student.gradeCard()
+  student.gradeCard();
 }
 
 studentResults(student1);
 
-
 // Example-3
 interface Song {
-    songName: string;
-    singerName: string;
-    printSongInfo(songName: string, singerName: string): string;
+  songName: string;
+  singerName: string;
+  printSongInfo(songName: string, singerName: string): string;
 }
 
 let song1: Song = {
-    songName: "Natural",
-    singerName: "Drigon",
-    printSongInfo(songName, singerName) {
-        return `Song: ${songName}, Singer: ${singerName}`
-    },
-}
+  songName: "Natural",
+  singerName: "Drigon",
+  printSongInfo(songName, singerName) {
+    return `Song: ${songName}, Singer: ${singerName}`;
+  },
+};
 
-console.log( song1.printSongInfo(song1.songName, song1.singerName) );
-
+console.log(song1.printSongInfo(song1.songName, song1.singerName));
 
 // Example-4
 interface Game {
-    gameName: string;
-    mobileGame: boolean;
-    letsPlay() : void;
+  gameName: string;
+  mobileGame: boolean;
+  letsPlay(): void;
 }
 
 const FF: Game = {
-    gameName: "Free Fire",
-    mobileGame: true,
-    letsPlay: () => {
-        console.log(`Lets Play ${FF.gameName}`);
-    }
-}
+  gameName: "Free Fire",
+  mobileGame: true,
+  letsPlay: () => {
+    console.log(`Lets Play ${FF.gameName}`);
+  },
+};
 
 FF.letsPlay();
 
+// Inheritance in Interfaces - Using 'extends' KeyWord
+interface MovieDetails {
+  readonly name: string;
+  ratings: number;
+  printMovieInfo(name: string, price: number, ratings: number): string | number;
+}
+
+interface MovieGenra extends MovieDetails {
+  genra: string;
+}
+
+const Movie1: MovieGenra = {
+  name: "Star Wars",
+  genra: "Action",
+  ratings: 8.9,
+  printMovieInfo(name, price, ratings) {
+    return `Movie name: ${name} Price: ${price} Ratings: ${ratings}`;
+  },
+};
+
+const info = Movie1.printMovieInfo("John Wick", 100, 8);
+console.log(info);
+
+
+
+// 'Declaration Merging' or 'Interface Extension' or 're-opening' 
+
+interface Car {
+    brand: string;
+    start(): void; 
+}
+
+// Declaration Merging / Interface Extension / re-opening
+// Again using the same interface name --> 'Car' 
+// -->> So, this is called Declaration Merging / Interface Extension / re-opening
+// Declaration Merging -->> All the properties & Methods in the interface will be 'Merged'
+// Declaration Merging is used to add new properties & Methods to the interface 
+
+interface Car {
+    model: string;
+    stop(): void;
+}
+
+const myCar: Car = {
+    brand: "BMW",
+    model: "M3",
+    start() {
+        console.log(`${myCar.brand} Started 🏎️`);
+    },
+    stop() {
+        console.log(`${myCar.brand} Stopped 🛑`)
+    }
+}
+
+myCar.start();
+myCar.stop();
 
