@@ -1,5 +1,13 @@
 // Interfaces in Typescript -->> IMPORTANT TOPIC
 
+// Interfraces Topics Covered In this File
+// Interfaces for Objects & Methods
+// Interfaces for Functions
+// Interfaces for Classes ( Pending - Still Not Covered ) - Will Complete After Learning OOPS
+// Inheritance in Interfaces - Using 'extends' KeyWord
+// 'Declaration Merging' or 'Interface Extension' or 're-opening' 
+// Important - How to Provide an Interface for a callBack Function?
+
 // Interfaces for Objects
 //Example 1
 
@@ -208,4 +216,27 @@ const myCar: Car = {
 
 myCar.start();
 myCar.stop();
+
+
+//------------------------------------------------------------------
+// Important - How to Provide an Interface for a callBack Function?
+//------------------------------------------------------------------
+// callBack Function - Passing a Function as an Argument into another Function
+
+// function fun_name( callBackFun: (x: number) => number ): void{ }
+
+//-----------------------------------------------------
+// NOTE: While Providing interface for a callBack Function 
+//       -->> Use 'Arrow Symbol' => insted of using 'Column' : for providing dataType of the returnValue in the interface
+//------------------------------------------------------
+
+function fun1(callBackFun: () => void): void {
+  fun2();
+}
+
+function fun2(): void {
+  console.log("CallBack Fun: Passing a Fun as an Argument into another Fun");
+}
+
+fun1(fun2);
 
