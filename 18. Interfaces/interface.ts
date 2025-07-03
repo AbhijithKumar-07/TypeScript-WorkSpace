@@ -240,3 +240,16 @@ function fun2(): void {
 
 fun1(fun2);
 
+// Example - 2
+function checkEvenOrOdd(n: number, callBackFunction: (x: number) => string): void{ 
+  let result = callBackFunction(n);
+  console.log(`${n} is ${result} Number`);
+}
+
+function callBackFunction(x: number): string {
+  if (x % 2 == 0) return "Even";
+  else return "Odd";
+}
+
+checkEvenOrOdd(11, callBackFunction);
+
