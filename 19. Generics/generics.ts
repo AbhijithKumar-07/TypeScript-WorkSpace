@@ -74,6 +74,33 @@ function filterArray<T>(arr: T[], conditionFun: (ele: T) => boolean): T[] {
   return arr.filter((ele, index) => conditionFun(ele));
 }
 
-const numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 const evenNumbers = filterArray<number>(numberArray, (ele) => ele % 2 == 0);
-console.log(evenNumbers);
+// console.log(evenNumbers);
+
+const strArray = ["apple", "bananna", "cherry", "date"];
+const shortWords = filterArray<string>(strArray, (word) => word.length < 6);
+// console.log(shortWords);
+
+interface Fruit {
+  name: string;
+  color: string;
+}
+
+let fruitArray: Fruit[] = [
+  { name: "Apple", color: "Red" },
+  { name: "Banana", color: "Yellow" },
+  { name: "Cherry", color: "Red" },
+];
+
+const redFruits = filterArray<Fruit>(fruitArray, (fruit) => fruit.color == "Red");
+// console.log(redFruits);
+
+
+// Example 4
+function reversePair<T, U>(value1: T, value2: U): [U, T] {
+    return [value2, value1];
+}
+
+const reversedPair = reversePair<string, number>("hello", 11);
+// console.log(reversedPair);
