@@ -1,4 +1,4 @@
-// logical OR (|) in TypeScript
+// BitWise OR (|) in TypeScript
 
 let password: string | number = 11;
 

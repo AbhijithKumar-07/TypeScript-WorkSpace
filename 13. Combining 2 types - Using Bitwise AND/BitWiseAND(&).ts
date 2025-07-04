@@ -9,7 +9,7 @@ type AccountDetails = {
     password: string;
 }
 
-// For Combining 2 types - We use Logical AND Symbol- '&' - Ambressant 
+// For Combining 2 types - We use BitWise AND Symbol- '&' - Ambressant 
 // type type_name = type_1 & type_2
 
 type user = UserInfo & AccountDetails;
