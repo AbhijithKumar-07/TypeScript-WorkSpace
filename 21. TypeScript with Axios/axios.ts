@@ -7,7 +7,7 @@ interface Todo {
   completed: boolean;
 }
 
-// Method - 1 ( Not Suggested ) - Better to Use Method - 2 
+// Method - 1 ( Not Suggested ) - Better to Use Method - 2
 const fetchData = async () => {
   try {
     const response: AxiosResponse<Todo> = await axios.get(
@@ -22,7 +22,7 @@ const fetchData = async () => {
 
 fetchData();
 
-// Method - 2 - Preferred Method 
+// Method - 2 - Preferred Method
 const dataFetchingFromApi = async () => {
   try {
     const response = await axios.get<Todo>(
