@@ -1,0 +1,3 @@
+Declaration Files -->> File extension -->> .d.ts
+Our Compiler doesn't know what the heck is these typeScript interfaces, types, ... and all those stuff!!
+All the defaultSyntax of the typeScript types, interfaces, annotations,... are already defined in the declarationFiles ( .d.ts )
